@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mytestpackage"
+version = "0.0.1"
+authors = [
+  { name="Markus Lang", email="datamastery87@gmail.com"},
+]
+description = "Sample Package"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pandas >= 1.4.0",
+    "numpy >= 1.22.0"
+]
+[project.optional-dependencies]
+dev = [
+  "autoflake",
+  "black",
+  "build",
+  "coverage",
+  "flake8",
+  "isort",
+  "mypy",
+  "pre-commit",
+  "pytest",
+  "pytest-cov",
+  "toml",
+  "tox",
+  "twine",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/pypa/sampleproject"
+"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
+
+[tool.autoflake]
+ignore-init-module-imports = true
+in-place = true
+recursive = true
+remove-all-unused-imports = true
+remove-unused-variables = true
+
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+addopts = "-ra -v --cov --cov-report term-missing"
+minversion = 7.0
+pythonpath = ["src"]
+testpaths = ["tests"]
